@@ -1,0 +1,46 @@
+ <!-- FOOTER -->
+ <section class="wrapper">
+    <div class="container">
+      <footer class="py-3 my-4">
+        <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+          <li class="nav-item"><a href="/" class="nav-link px-2 text-muted fw-bold">Home</a></li>
+          <li class="nav-item"><a href="/newPost" class="nav-link px-2 text-muted fw-bolder">New Post</a></li>
+          <li class="nav-item"><a href="/editPost" class="nav-link px-2 text-muted fw-bolder">Edit Post</a></li>
+          <li class="nav-item"><a href="/deletePost" class="nav-link px-2 text-muted fw-bolder">Delete Post</a></li>
+        </ul>
+        <p class="text-center text-muted">© 2023 VJ Company, Inc</p>
+      </footer>
+    </div>
+  </section>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+    
+    <script>
+      var swiper = new Swiper(".mySwiper", {
+  
+        loop: true,
+        autoplay: true,
+        autoplayTimeout: 1000, //2000ms = 2s;
+        autoplayHoverPause: true,
+  
+        effect: "coverflow",
+        grabCursor: true,
+        centeredSlides: true,
+        slidesPerView: "auto",
+        coverflowEffect: {
+          rotate: 0,
+          stretch: 0,
+          depth: 300,
+          modifier: 1,
+          slideShadows: false,
+        },
+        pagination: {
+          el: ".swiper-pagination",
+        },
+      });
+    </script>
+    
+</body>
+</html>

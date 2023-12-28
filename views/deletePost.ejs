@@ -1,0 +1,63 @@
+<%- include("partials/header.ejs") %>
+
+<div class="container-edit-post wrapper">
+
+
+    <% for(let i=0; i<dataInfo.length;i++){ %>
+    <div class="list">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-align">
+        <img src= "<%= dataInfo[i].image %>" alt="Image" class="img-fluid">
+      </div>
+      <div class="col-align">
+        <h2 class="card-title align-items-center"><%= dataInfo[i].title %></h2>
+      </div>
+      <div class="col-align" action="/delete" method="POST">
+        <button class="btn-edit" type="submit" data-index="<%= i %>">Delete</button>
+      </div>
+    </div>
+  </div>
+ 
+
+</div>
+<% } %>
+</div>
+
+<script>
+
+    function sendIndexToServer(index) {
+      
+        fetch(`/delete`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ index: index })
+        })
+        .then(response => response.json())
+        .then(data => {
+          console.log('Response from server:', data);
+          if (data.redirectTo) {
+            window.location.href = data.redirectTo;
+          }
+        })
+        .catch(error => {
+          console.error('Error sending data to server:', error);
+        });
+      }
+
+    document.querySelectorAll('.btn-edit').forEach(button => {
+        button.addEventListener('click', function() {
+         const index = this.getAttribute('data-index');
+          sendIndexToServer(index);
+        });
+      });
+  
+      
+      
+
+  </script>
+
+
+  <%- include("partials/footer1.ejs") %>
